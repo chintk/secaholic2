@@ -17,6 +17,12 @@ gem "carrierwave"
 # Haml
 gem 'haml'
 gem 'haml-rails'
+#Bootstrap
+gem 'font-awesome-sass'
+gem 'bootstrap-sass'
+gem 'bootstrap-wysihtml5-rails'
+#Paginate
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug'

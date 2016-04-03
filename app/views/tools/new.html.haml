@@ -1,0 +1,10 @@
+.container
+  .row
+    .col-sm-8.col-sm-offset-2
+      .panel.panel-brand
+        = form_for @tool do |f|
+          = f.label :title
+          = f.text_field :title, class: "form-control"
+          = f.label :link
+          = f.text_field :link, class: "form-control"
+          = f.submit t(".create"), class: "btn btn-lg btn-blue"
