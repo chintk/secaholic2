@@ -8,6 +8,8 @@ class CreateTools < ActiveRecord::Migration
       t.references :created_by
       t.references :updated_by
       t.string :avatar
+      t.boolean :hide, default: false
+      t.boolean :status, default: false
 
       t.timestamps null: false
     end

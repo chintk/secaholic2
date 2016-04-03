@@ -21,8 +21,10 @@ ActiveRecord::Schema.define(version: 20160401090153) do
     t.integer  "created_by_id"
     t.integer  "updated_by_id"
     t.string   "avatar"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.boolean  "hide",          default: false
+    t.boolean  "status",        default: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,2 +1,15 @@
-%h1 Tools#index
-%p Find me in app/views/tools/index.html.erb
+.container
+  .row
+    .page-bar.h3= t ".tools"
+  .row
+    %table.table.font-18.table-bordered
+      %tr.active
+        %td= t ".avatar"
+        %td= t ".title"
+        %td= t".description"
+        %td= t".link"
+        %td= t ".content"
+      = render @tools
+    = paginate @tools
+  .row
+    = link_to t(".new"), new_tool_path
