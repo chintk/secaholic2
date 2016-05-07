@@ -1,2 +1,2 @@
 .container
-  = @tool.content.html_safe
+  = @tool.content.try :html_safe
