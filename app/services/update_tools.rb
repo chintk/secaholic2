@@ -18,7 +18,16 @@ class UpdateTools
 
     def get_content response
       content = response.body
-      @tool.content = content[content.index("<article")..content.index("</article>")+9]
+      tool_content = content[content.index("<article")..content.index("</article>")+9]
+        .force_encoding('ASCII-8BIT').encode('UTF-8', invalid: :replace, undef: :replace, replace: '?')
+      @tool.content = tool_content
+      if tool_content.index("<h1>")
+        if tool_content.index("<img") && tool_content.index("<img") < tool_content.index("</h1>")
+          @tool.image = tool_content[tool_content.index("<img")..tool_content.index("<img")+tool_content[tool_content.index("<img")..tool_content.index("</h1>")].index(">")]
+        end
+        tool_content = tool_content[tool_content.index("</h1>")..-1]
+      end
+      @tool.description = tool_content[tool_content.index("<p>")..tool_content.index("</p>")+3]
       @tool.save
       # case response.to_hash[:server]
       # when "GitHub.com"

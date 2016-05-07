@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+  tools:
+    new:
+      create: Create

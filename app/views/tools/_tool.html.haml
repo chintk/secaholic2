@@ -1,6 +1,7 @@
 %tr
-  %td= tool.avatar
+  %td= tool.image.try :html_safe
   %td= link_to tool.title, tool_path(tool)
-  %td= tool.description
+  %td= tool.description.try :html_safe
   %td= tool.link
-  %td= tool.content
+  %td
+  / = tool.content
